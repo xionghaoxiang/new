@@ -1,0 +1,107 @@
+#ifndef __USART_H
+#define	__USART_H
+
+
+#include "stm32f10x.h"
+#include <stdio.h>
+#include "Header.h"
+
+/** 
+  * 串口宏定义，不同的串口挂载的总线和IO不一样，移植时需要修改这几个宏
+	* 1-修改总线时钟的宏，uart1挂载到apb2总线，其他uart挂载到apb1总线
+	* 2-修改GPIO的宏
+  */
+	
+//串口1-USART1
+//调试串口
+
+#define  DEBUG_USARTx                   USART1
+#define  DEBUG_USART_CLK                RCC_APB2Periph_USART1
+#define  DEBUG_USART_APBxClkCmd         RCC_APB2PeriphClockCmd
+#define  DEBUG_USART_BAUDRATE           115200
+
+// USART GPIO 引脚宏定义
+#define  DEBUG_USART_GPIO_CLK           (RCC_APB2Periph_GPIOA)
+#define  DEBUG_USART_GPIO_APBxClkCmd    RCC_APB2PeriphClockCmd
+    
+#define  DEBUG_USART_TX_GPIO_PORT       GPIOA   
+#define  DEBUG_USART_TX_GPIO_PIN        GPIO_Pin_9
+#define  DEBUG_USART_RX_GPIO_PORT       GPIOA
+#define  DEBUG_USART_RX_GPIO_PIN        GPIO_Pin_10
+
+#define  DEBUG_USART_IRQ                USART1_IRQn
+#define  DEBUG_USART_IRQHandler         USART1_IRQHandler
+
+
+
+ //串口2-USART2
+ //空闲串口
+#define  UNUSED_USARTx                   USART2
+#define  UNUSED_USART_CLK                RCC_APB1Periph_USART2
+#define  UNUSED_USART_APBxClkCmd         RCC_APB1PeriphClockCmd
+#define  UNUSED_USART_BAUDRATE           115200
+
+// USART GPIO 引脚宏定义
+#define  UNUSED_USART_GPIO_CLK           RCC_APB2Periph_GPIOA
+#define  UNUSED_USART_GPIO_APBxClkCmd    RCC_APB2PeriphClockCmd
+    
+#define  UNUSED_USART_TX_GPIO_PORT       GPIOA   
+#define  UNUSED_USART_TX_GPIO_PIN        GPIO_Pin_2
+#define  UNUSED_USART_RX_GPIO_PORT       GPIOA
+#define  UNUSED_USART_RX_GPIO_PIN        GPIO_Pin_3
+
+#define  UNUSED_USART_IRQ                USART2_IRQn
+#define  UNUSED_USART_IRQHandler         USART2_IRQHandler
+
+
+
+
+// 串口3-USART3
+//蓝牙的串口
+#define  BLUETOOTH_USARTx                   USART3
+#define  BLUETOOTH_USART_CLK                RCC_APB1Periph_USART3
+#define  BLUETOOTH_USART_APBxClkCmd         RCC_APB1PeriphClockCmd
+#define  BLUETOOTH_USART_BAUDRATE           9600
+
+// USART GPIO 引脚宏定义
+#define  BLUETOOTH_USART_GPIO_CLK           (RCC_APB2Periph_GPIOB)
+#define  BLUETOOTH_USART_GPIO_APBxClkCmd    RCC_APB2PeriphClockCmd
+    
+#define  BLUETOOTH_USART_TX_GPIO_PORT       GPIOB   
+#define  BLUETOOTH_USART_TX_GPIO_PIN        GPIO_Pin_10
+#define  BLUETOOTH_USART_RX_GPIO_PORT       GPIOB
+#define  BLUETOOTH_USART_RX_GPIO_PIN        GPIO_Pin_11
+
+#define  BLUETOOTH_USART_IRQ                USART3_IRQn
+#define  BLUETOOTH_USART_IRQHandler         USART3_IRQHandler
+
+
+
+// 串口4-ROS串口
+#define  ROS_USARTx                   UART4
+#define  ROS_USART_CLK                RCC_APB1Periph_UART4
+#define  ROS_USART_APBxClkCmd         RCC_APB1PeriphClockCmd
+#define  ROS_USART_BAUDRATE           115200
+
+// USART GPIO 引脚宏定义
+#define  ROS_USART_GPIO_CLK           (RCC_APB2Periph_GPIOC)
+#define  ROS_USART_GPIO_APBxClkCmd    RCC_APB2PeriphClockCmd
+    
+#define  ROS_USART_TX_GPIO_PORT       GPIOC   
+#define  ROS_USART_TX_GPIO_PIN        GPIO_Pin_10
+#define  ROS_USART_RX_GPIO_PORT       GPIOC
+#define  ROS_USART_RX_GPIO_PIN        GPIO_Pin_11
+
+#define  ROS_USART_IRQ                UART4_IRQn
+#define  ROS_USART_IRQHandler         UART4_IRQHandler
+
+
+
+
+
+
+void DEBUG_USART_Init(void);
+void BLUETOOTH_USART_Init(void);
+void ROS_USART_Init(void);
+void ROS1_USART_Init(void);
+#endif /* __USART_H */

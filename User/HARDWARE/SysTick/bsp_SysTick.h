@@ -1,0 +1,24 @@
+#ifndef __SYSTICK_H
+#define __SYSTICK_H
+
+#include "stm32f10x.h"
+
+
+#define delay_ms  	SysTick_Delay_Ms
+#define delay_us   	SysTick_Delay_Us
+
+#define Delay_ms(x) Delay_us(100*x)	 //µ¥Î»ms
+
+
+void SysTick_Init(void);
+void Delay_us(__IO u32 nTime);
+
+void SysTick_Delay_Us( __IO uint32_t us);
+void SysTick_Delay_Ms( __IO uint32_t ms);
+
+void RunTimer_Start(void);
+void RunTimer_Stop(void);
+uint32_t RunTimer_GetMs(void);
+
+
+#endif /* __SYSTICK_H */
