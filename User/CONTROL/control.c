@@ -4,6 +4,8 @@
 
 static uint8_t needturn=0;
 
+uint8_t open=0;
+
 float Move_X =0,Move_Z = 0;						//目标速度和目标转向速度
 float PWM_Left,PWM_Right;					//左右电机PWM值
 float RC_Velocity,RC_Turn_Velocity;			//遥控控制的速度
@@ -564,6 +566,17 @@ void Calculate_Distance_5ms(void)
 		
 
 	}
+
+
+void set_open(void)
+{
+    open=1;
+}
+
+uint8_t get_open(void)
+{
+    return open;
+}
 /**************************************************************************
 Function: Control Function
 Input   : none
@@ -596,13 +609,20 @@ int TIMING_TIM_IRQHandler(void)
 		}			
 			if(APP_ON_Flag == RC_ON)								//开启蓝牙控制时，需上拉轮盘直到显示屏出现 bluetooth 字样
 				Bluetooth_Control();								
-	
-			if(rotate_done==0)
+	        if(Turn_Off()==Normal)
+		    {
+                set_open();
+            }
+            else
+            {
+                open=0;
+            }
+			if(rotate_done==0 && get_open()==1)
 			{
 			Rotate_Fixed_Angle6(85);
 			}
 //			line_error=Serial_RxPacket[0];
-		
+            
 	}
 	return 0;
 }
