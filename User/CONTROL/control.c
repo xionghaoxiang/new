@@ -586,7 +586,7 @@ int TIMING_TIM_IRQHandler(void)
 		 Read_DMP();
 	OLED_ShowString(50,0,"Yaw");//fabs(error)
 		OLED_ShowNumber(0,0,(u32)get_rotate_done(),1,12);
-        OLED_ShowNumber(30,0,(u32)KEY2_STATE,1,12);
+        OLED_ShowNumber(30,0,(u32)Target_Laps,1,12);
     OLED_ShowNumber(70, 0, (u32)Yaw, 2, 12); 
     Turn_Off();
 		if(delay_flag)												//50ms—” ±
@@ -1021,6 +1021,7 @@ void GraySensor_TrackSimple(int base_speed)
     {
 				set_rotate_done();
                 total_distance=0;
+                Target_Turns++;
 
     }
     else
