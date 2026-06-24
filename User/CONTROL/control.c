@@ -1021,7 +1021,7 @@ void GraySensor_TrackSimple(int base_speed)
     {
 				set_rotate_done();
                 total_distance=0;
-                Target_Turns++;
+                // Target_Turns++;
 
     }
     else

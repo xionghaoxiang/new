@@ -39,8 +39,8 @@ uint8_t Key_Scan(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin);
 uint8_t User_Key_Scan(void);
 void Get_KeyVal(void);
 // key.h 文件
-extern volatile uint8_t Target_Laps;
-extern volatile uint8_t Target_Turns;	
+// extern volatile uint8_t Target_Laps;
+// extern volatile uint8_t Target_Turns;	
 
 #endif /* __KEY_H */
 

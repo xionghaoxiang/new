@@ -95,19 +95,21 @@ int main(void)
 	{	
 		if(Turn_Off()==Normal)
 		{
-				if(get_rotate_done()==1)
-				{
-					GraySensor_TrackSimple(1000);
-				}}
+			if(get_rotate_done()==1)
+			{
+				GraySensor_TrackSimple(1000);
+			}
+			// if (Target_Turns>=4*Target_Laps)
+			// {
+			// 	SetMotor(0,0);
+			// }
+		}
 			
 		else
 				{
 					SetMotor(0,0);
 				}
-		if (Target_Turns>=4*Target_Laps)
-		{
-			SetMotor(0,0);
-		}
+
 		
 
 		if(stop_flag<=2)
