@@ -586,8 +586,9 @@ int TIMING_TIM_IRQHandler(void)
 		 Read_DMP();
 	OLED_ShowString(50,0,"Yaw");//fabs(error)
 		OLED_ShowNumber(0,0,(u32)get_rotate_done(),1,12);
-        OLED_ShowNumber(30,0,(u32)total_distance,1,12);
+        OLED_ShowNumber(30,0,(u32)KEY2_STATE,1,12);
     OLED_ShowNumber(70, 0, (u32)Yaw, 2, 12); 
+    Turn_Off();
 		if(delay_flag)												//50ms延时
 		{
 			if(++delay_50==10) delay_50=0,delay_flag=0;            	//给主函数提供50ms的精准延时，主要是用于上位机示波器

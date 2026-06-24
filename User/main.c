@@ -93,10 +93,19 @@ int main(void)
 	
 	while(1)
 	{	
-		if(get_rotate_done()==1)
+		if(Turn_Off()==Normal)
 		{
-				GraySensor_TrackSimple(1000);
-		}
+				if(get_rotate_done()==1)
+				{
+					GraySensor_TrackSimple(1000);
+				}}
+			
+		else
+				{
+					SetMotor(0,0);
+				}
+		
+
 		if(stop_flag<=2)
 		{
 //			if(Turn_Off()==Normal && startflag==0)
