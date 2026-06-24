@@ -1,5 +1,7 @@
 #include "./key/bsp_key.h"  
 
+volatile uint8_t Target_Laps = 1;   // 目标圈数，默认1圈
+volatile uint8_t Target_Turns = 0;   // 目标转数
 /**************************************************************************
 Function: Key_GPIO_Config
 Input   : none
@@ -152,8 +154,7 @@ Output  : Key status
 ����  ֵ����
 **************************************************************************/	 
 //����5ms�ж��е���
-static uint8_t Target_Laps = 1;   // 目标圈数，默认1圈
-static uint8_t Target_Turns = 0;   // 目标圈数，默认1圈
+
 void Get_KeyVal(void)
 {
 	switch(User_Key_Scan())								//����ɨ�裬������˫���򳤰�

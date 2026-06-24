@@ -38,9 +38,9 @@ void Key_GPIO_Config(void);
 uint8_t Key_Scan(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin);
 uint8_t User_Key_Scan(void);
 void Get_KeyVal(void);
-static uint8_t Target_Laps;   // 目标圈数，默认1圈
-static uint8_t Target_Turns = 0;   // 目标圈数，默认1圈
-
+// key.h 文件
+extern volatile uint8_t Target_Laps;
+extern volatile uint8_t Target_Turns;	
 
 #endif /* __KEY_H */
 
