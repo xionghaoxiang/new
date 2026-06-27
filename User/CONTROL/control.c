@@ -286,7 +286,7 @@ void Line_Follow_PID(int line_pos)
 #define PWM_LIMIT 7000
 #define MIN_PWM 300   // 死区补偿，避免输出太小不起作用
 
-volatile uint8_t rotate_done = 1;   // 1 = 完成（默认不在旋转）
+volatile uint8_t rotate_done = 0;   // 1 = 完成（默认不在旋转）
 volatile uint8_t rotate_done1 = 0;   // 1 = 完成（默认不在旋转）
 volatile uint8_t rotate_done2 = 0;   // 1 = 完成（默认不在旋转）
 volatile uint8_t rotate_done3 = 0;   // 1 = 完成（默认不在旋转）

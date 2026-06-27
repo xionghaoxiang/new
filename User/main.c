@@ -96,7 +96,9 @@ int main(void)
 		
 			if(get_rotate_done()==1 && get_open()==1)
 			{
-				GraySensor_TrackSimple(1000);
+				SetMotor(1000,1000);
+				//GraySensor_TrackSimple(1000);
+				
 			}
 			// if (Target_Turns>=4*Target_Laps)
 			// {
@@ -105,7 +107,7 @@ int main(void)
 			
 		else
 				{
-					SetMotor(0,0);
+					SetMotor(0,-300);
 				}
 
 		
