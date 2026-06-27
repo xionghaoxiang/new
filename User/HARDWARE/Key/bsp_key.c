@@ -160,9 +160,9 @@ void Get_KeyVal(void)
 	switch(User_Key_Scan())								//����ɨ�裬������˫���򳤰�
 		{
 			case Click:                       //������������ģʽ
-            Target_Laps++;                    // 圈数自增
-            if(Target_Laps > 10)              // 上限设为10圈（可改）
-                Target_Laps = 1;              // 超过上限则回到1圈				
+            // Target_Laps++;                    // 圈数自增
+            // if(Target_Laps > 10)              // 上限设为10圈（可改）
+            //     Target_Laps = 1;              // 超过上限则回到1圈				
 				break;
 			case Long_Press:
 				//Flag_Show = !Flag_Show;								//���� ����/�˳� ��λ��ģʽ
